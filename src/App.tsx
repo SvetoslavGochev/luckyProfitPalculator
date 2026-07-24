@@ -79,6 +79,15 @@ export default function App() {
             room for token vesting, locking, and smart-contract workflows later.
           </p>
 
+          <div className="hero-actions">
+            <a href="#calculator" className="button button-primary">
+              Open Calculator
+            </a>
+            <a href="#roadmap" className="button button-ghost">
+              View Roadmap
+            </a>
+          </div>
+
           <div className="hero-highlights">
             <div>
               <strong>{formatCurrency(finalBalance)}</strong>
@@ -95,7 +104,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="calculator-card">
+        <div id="calculator" className="calculator-card">
           <div className="card-topline">
             <span>Live calculator</span>
             <span>Simple compound growth model</span>
@@ -184,7 +193,7 @@ export default function App() {
       </section>
 
       <section className="content-grid">
-        <article className="panel">
+        <article id="roadmap" className="panel">
           <span className="section-tag">Project roadmap</span>
           <h2>What this project can grow into</h2>
           <ul>
