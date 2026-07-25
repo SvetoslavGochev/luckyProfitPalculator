@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucky-profit-palculator.vercel.app/sitemap.xml
