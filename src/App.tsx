@@ -1,38 +1,6 @@
 import { useState } from "react";
 import { calculateProjection, parseNonNegativeNumber } from "./lib/calculator";
 
-const helperTools = [
-  {
-    name: "Playwright",
-    description:
-      "Browser automation and end-to-end checks for calculator flows and future UI tests.",
-  },
-  {
-    name: "Hardhat",
-    description:
-      "Smart-contract work, deploy scripts, and local chain validation when the project grows into on-chain tooling.",
-  },
-  {
-    name: "dotenv",
-    description:
-      "Local secret handling for API keys, RPC URLs, and deployment values.",
-  },
-  {
-    name: "ESLint",
-    description: "Keeps the codebase consistent and catches mistakes early.",
-  },
-  {
-    name: "Prettier",
-    description:
-      "Formatting so the project stays readable with less manual cleanup.",
-  },
-  {
-    name: "GitHub Pages",
-    description:
-      "A simple deployment path for a static marketing site or a calculator landing page.",
-  },
-];
-
 const roadmap = [
   "Profit calculator for staking, vaults, or referral-based services.",
   "Token vesting and locking service ideas from the source notes.",
@@ -202,27 +170,6 @@ export default function App() {
             ))}
           </ul>
         </article>
-
-        <article className="panel">
-          <span className="section-tag">Helper tools</span>
-          <h2>Tools that help both of us move faster</h2>
-          <div className="tool-list">
-            {helperTools.map((tool) => (
-              <div key={tool.name} className="tool-item">
-                <strong>{tool.name}</strong>
-                <p>{tool.description}</p>
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
-
-      <section className="footer-note">
-        <p>
-          Next improvement: connect this calculator to real scenarios, such as
-          vesting, locking, or vault earnings, and wire in Playwright checks
-          once the UX settles.
-        </p>
       </section>
     </main>
   );
