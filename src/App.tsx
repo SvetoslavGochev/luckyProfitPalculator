@@ -1,5 +1,9 @@
 import { useState } from "react";
+import FAQ from "./FAQ";
+import HowItWorks from "./HowItWorks";
 import { calculateProjection, parseNonNegativeNumber } from "./lib/calculator";
+
+type View = "home" | "how" | "faq";
 
 const roadmap = [
   "Profit calculator for staking, vaults, or referral-based services.",
@@ -24,6 +28,7 @@ export default function App() {
   const [apy, setApy] = useState(18);
   const [months, setMonths] = useState(12);
   const [platformFee, setPlatformFee] = useState(2.5);
+  const [activeView, setActiveView] = useState<View>("home");
 
   const { grossProfit, feeAmount, netProfit, finalBalance, annualizedReturn } =
     calculateProjection({
@@ -33,8 +38,8 @@ export default function App() {
       platformFee,
     });
 
-  return (
-    <main className="page-shell">
+  const renderHome = () => (
+    <>
       <section className="hero-card">
         <div className="hero-copy">
           <span className="eyebrow">Lucky Profit Calculator</span>
@@ -43,17 +48,20 @@ export default function App() {
             future automation.
           </h1>
           <p className="lede">
-            A clean starting point for the calculator idea from the notes, with
-            room for token vesting, locking, and smart-contract workflows later.
+            A clear calculator for projecting profit, fee impact, and annualized return
+            in early product or token scenarios.
           </p>
 
           <div className="hero-actions">
-            <a href="#calculator" className="button button-primary">
+            <button type="button" onClick={() => setActiveView("home")} className="button button-primary">
               Open Calculator
-            </a>
-            <a href="#roadmap" className="button button-ghost">
-              View Roadmap
-            </a>
+            </button>
+            <button type="button" onClick={() => setActiveView("how")} className="button button-ghost">
+              How it works
+            </button>
+            <button type="button" onClick={() => setActiveView("faq")} className="button button-ghost">
+              FAQ
+            </button>
           </div>
 
           <div className="hero-highlights">
@@ -171,6 +179,38 @@ export default function App() {
           </ul>
         </article>
       </section>
+    </>
+  );
+
+  return (
+    <main className="page-shell">
+      <nav className="top-nav" aria-label="Main navigation">
+        <button
+          type="button"
+          className={activeView === "home" ? "nav-button active" : "nav-button"}
+          onClick={() => setActiveView("home")}
+        >
+          Home
+        </button>
+        <button
+          type="button"
+          className={activeView === "how" ? "nav-button active" : "nav-button"}
+          onClick={() => setActiveView("how")}
+        >
+          How it works
+        </button>
+        <button
+          type="button"
+          className={activeView === "faq" ? "nav-button active" : "nav-button"}
+          onClick={() => setActiveView("faq")}
+        >
+          FAQ
+        </button>
+      </nav>
+
+      {activeView === "home" && renderHome()}
+      {activeView === "how" && <HowItWorks />}
+      {activeView === "faq" && <FAQ />}
     </main>
   );
 }
