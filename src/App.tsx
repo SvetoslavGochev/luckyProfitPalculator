@@ -1,9 +1,10 @@
 import { useState } from "react";
 import FAQ from "./FAQ";
 import HowItWorks from "./HowItWorks";
+import Services from "./Services";
 import { calculateProjection, parseNonNegativeNumber } from "./lib/calculator";
 
-type View = "home" | "how" | "faq";
+type View = "home" | "how" | "faq" | "services";
 
 const roadmap = [
   "Profit calculator for staking, vaults, or referral-based services.",
@@ -206,11 +207,19 @@ export default function App() {
         >
           FAQ
         </button>
+        <button
+          type="button"
+          className={activeView === "services" ? "nav-button active" : "nav-button"}
+          onClick={() => setActiveView("services")}
+        >
+          Services
+        </button>
       </nav>
 
       {activeView === "home" && renderHome()}
       {activeView === "how" && <HowItWorks />}
       {activeView === "faq" && <FAQ />}
+      {activeView === "services" && <Services />}
     </main>
   );
 }
