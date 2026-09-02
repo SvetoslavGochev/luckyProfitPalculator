@@ -99,6 +99,16 @@ input {
   box-shadow: 0 12px 28px rgba(123, 237, 184, 0.25);
 }
 
+.nav-button--contact {
+  border-color: rgba(116, 140, 255, 0.3);
+  background: rgba(116, 140, 255, 0.08);
+}
+
+.nav-button--contact:hover {
+  border-color: rgba(160, 178, 255, 0.45);
+  background: rgba(116, 140, 255, 0.12);
+}
+
 .hero-card,
 .panel,
 .calculator-card,

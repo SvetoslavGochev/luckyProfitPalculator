@@ -218,6 +218,13 @@ export default function App() {
         >
           Services
         </button>
+        <button
+          type="button"
+          className="nav-button nav-button--contact"
+          onClick={() => setActiveView("services")}
+        >
+          Contact
+        </button>
       </nav>
 
       {activeView === "home" && renderHome()}
