@@ -88,6 +88,17 @@ input {
   border-color: transparent;
 }
 
+.nav-button--services {
+  border-color: rgba(128, 255, 181, 0.22);
+  background: rgba(128, 255, 181, 0.08);
+}
+
+.nav-button--services.active {
+  background: linear-gradient(135deg, #7bedb8, #8be3ff);
+  color: #07141b;
+  box-shadow: 0 12px 28px rgba(123, 237, 184, 0.25);
+}
+
 .hero-card,
 .panel,
 .calculator-card,

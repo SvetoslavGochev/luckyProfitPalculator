@@ -209,7 +209,11 @@ export default function App() {
         </button>
         <button
           type="button"
-          className={activeView === "services" ? "nav-button active" : "nav-button"}
+          className={
+            activeView === "services"
+              ? "nav-button nav-button--services active"
+              : "nav-button nav-button--services"
+          }
           onClick={() => setActiveView("services")}
         >
           Services
